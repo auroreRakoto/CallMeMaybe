@@ -1,0 +1,25 @@
+
+✔ Lancer uv init @done(26-05-09 11:56)
+✔ Installer pydantic et numpy @done(26-05-09 11:56)
+✔ Créer src/__main__.py @done(26-05-09 11:56)
+✔ Lire function_calling_tests.json @done(26-05-09 11:56)
+✔ Lire functions_definition.json @done(26-05-09 11:58)
+☐ Valider les données avec pydantic
+    ☐ Quelles donnees ?
+☐ Tester llm_sdk
+    ☐ Comment faire ? (ex: openai, azure, etc.)
+☐ Envoyer un prompt au modèle
+☐ Récupérer les logits
+☐ Comprendre les tokens/vocabulaire
+☐ Générer un JSON simple
+☐ Faire le constrained decoding
+☐ Écrire le fichier output
+☐ Tester avec plusieurs prompts
+☐ Ajouter le Makefile
+☐ Écrire le README
+
+what to do:
+    ☐ Research
+    ☐ add eval pdf to git
+    ☐ write a guide on how to do the project
+
