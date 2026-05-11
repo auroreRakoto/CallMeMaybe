@@ -17,8 +17,9 @@ install:
 	$(MANAGER) add torch transformers huggingface-hub pydantic numpy
 
 run:
-	UV_PROJECT_ENVIRONMENT=$(VENV_DIR) \
-	UV_CACHE_DIR=$(UV_CACHE) \
+# 	UV_PROJECT_ENVIRONMENT=$(VENV_DIR) \
+# 	UV_CACHE_DIR=$(UV_CACHE) \
+	$(MANAGER) run $(EXEC) -m $(PACKAGE)
 	$(MANAGER) run $(EXEC) -m $(PACKAGE)
 
 debug:
