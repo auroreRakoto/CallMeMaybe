@@ -23,15 +23,15 @@ def main():
     try:
         args = Parser.parse_args(sys.argv)
     except ValueError as error:
-        raise f"Argument error: {error}"
+        raise ValueError(f"Argument error: {error}")
 
     try:
         functions = load_json()
         prompts = load_json()
     except OSError as error:
-        raise f"File error: {error}"
+        raise OSError(f"File error: {error}")
     except Exception as error: # change to json error
-        raise f"JSON error: {error}"
+        raise Exception(f"JSON error: {error}")
 
     try:
         model = Small_LLM_Model()
@@ -42,7 +42,7 @@ def main():
         )
         results = process.process_all()
     except Exception as error:
-        raise f"Error {error}"
+        raise Exception(f"Error {error}")
 
     # try:
     #     save_json()
