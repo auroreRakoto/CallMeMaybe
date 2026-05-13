@@ -1,6 +1,9 @@
-import sys
 from pathlib import Path
 from pydantic import BaseModel
+
+# functions = load_json(args.functions_definition)
+# prompts = load_json(args.input)
+
 
 
 class ProgramArgs(BaseModel):
