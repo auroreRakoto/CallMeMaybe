@@ -3,20 +3,28 @@ import json
 # from xml.parsers.expat import model
 from llm_sdk.llm_sdk import Small_LLM_Model
 
+from typing import Any
+
 from src.parsing import Parser
 from src.process import Process
 
 import time
 import sys
 
-def load_json() -> list[dict[str,str]]:
-    lst = []
-    dico = {}
-    lst.append(dico)
-    return lst
+def load_json(path: Path) -> list[dict[str, Any]]:
+    with path.open("r", encoding="utf-8") as file:
+        data = json.load(file)
 
-def save_json():
-    pass
+    if not isinstance(data, list):
+        raise ValueError(f"{path} must contain a JSON array")
+
+    return data
+
+def save_json(path: Path, data: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with path.open("w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4)
 
 
 def main():
@@ -44,10 +52,10 @@ def main():
     except Exception as error:
         raise Exception(f"Error {error}")
 
-    # try:
-    #     save_json()
-    # except Exception as error:
-    #     raise f"Output error: {error}"
+    try:
+        save_json(args.output, results)
+    except Exception as error:
+        raise Exception(f"Output error: {error}")
    
 
 if __name__ == "__main__":

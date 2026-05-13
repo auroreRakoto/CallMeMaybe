@@ -18,6 +18,14 @@ class Process(BaseModel):
             "parameters": {}
         }
 
+    def build_prompt(self, user_prompt: str) -> str:
+        return (
+            "Choose the correct function for this user request.\n"
+            f"User request: {user_prompt}\n"
+            f"Available functions: {self.functions}\n"
+            "Return only the function name."
+        )
+
     def process_all(self) -> list[dict[str, Any]]:
         results: list[dict[str, Any]] = []
 
